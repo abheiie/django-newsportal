@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title%}
+profile
+{% endblock%}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-6 col-lg-6 col-md-6">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+                        <div class="col">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Join Now!</h1>
+                                </div>
+
+                                {% for message in messages %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ message }}
+                                </div>
+                                <!-- <li class="{{ message.tags }}"></li> -->
+                                {% endfor %}
+                                <div style="margin-bottom: 100px;">
+                                    <form action="/register_view/" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input name="username" type="username" class="form-control" id="username" required
+                                                aria-describedby="usernameHelp">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input name="email" type="email" class="form-control" id="email" required
+                                                aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input name="password" type="password" class="form-control" required
+                                            id="password">
+                                        </div>
+                                        <h4> Choose your preferences </h4>
+                                        <div class="row">
+                                            <div class="col">
+
+                                                <div class="form-check">
+                                                    <input name ="preferences" class="form-check-input" type="checkbox" value="politics"
+                                                        id="politics" >
+                                                    <label class="form-check-label" for="business">
+                                                        Politics
+                                                    </label>
+                                                </div>
+
+
+                                                <div class="form-check">
+                                                    <input name = "preferences" class="form-check-input" type="checkbox" value="international"
+                                                        id="international" checked>
+                                                    <label class="form-check-label" for="international">
+                                                        International
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="form-check">
+                                                    <input name = "preferences" class="form-check-input" type="checkbox" value="sports"
+                                                        id="sports" checked>
+                                                    <label class="form-check-label" for="sports">
+                                                        Sports
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input name = "preferences" class="form-check-input" type="checkbox" value="finance"
+                                                        id="finance">
+                                                    <label class="form-check-label" for="finance">
+                                                        Finance
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input  name = "preferences" class="form-check-input" type="checkbox" value="art"
+                                                        id="art">
+                                                    <label class="form-check-label" for="art">
+                                                        Art
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input  name = "preferences" class="form-check-input" type="checkbox" value="travel"
+                                                        id="travel" checked>
+                                                    <label class="form-check-label" for="travel">
+                                                        Travel
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input  name = "preferences" class="form-check-input" type="checkbox" value="bollywood"
+                                                        id="bollywood">
+                                                    <label class="form-check-label" for="bollywood">
+                                                        Bollywood
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+
+
+                                        <button type="submit" class="btn btn-primary">Register</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+{% block script %}
+
+{% endblock %}
